@@ -1,103 +1,111 @@
 {
-  "openapi": "3.0.0",
+  "swagger": "2.0",
   "info": {
-    "title": "shopmart",
-    "contact": {},
-    "version": "1.0"
+    "version": "1.0",
+    "title": "Student App",
+    "contact": {}
   },
-  "servers": [
-    {
-      "url": "https://node-app-demo-first.herokuapp.com",
-      "variables": {}
-    }
-  ],
+  "host": "",
+  "basePath": "/api",
+  "schemes": ["https","http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
   "paths": {
-    "/get": {
+    "/product/get": {
       "get": {
+        "summary": "get",
         "tags": [
           "product"
         ],
-        "summary": "get",
         "operationId": "get",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
         "parameters": [],
         "responses": {
           "200": {
             "description": "",
             "headers": {}
           }
-        },
-        "deprecated": false
+        }
       }
     },
-    "/post": {
+    "/api/product/post": {
       "post": {
+        "summary": "post",
         "tags": [
           "product"
         ],
-        "summary": "post",
         "operationId": "post",
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "encoding": {},
-              "schema": {
-                "required": [
-                  "shopName",
-                  "price",
-                  "offerPrice",
-                  "discount",
-                  "productName",
-                  "rating",
-                  "category"
-                ],
-                "type": "object",
-                "properties": {
-                  "shopName": {
-                    "type": "string",
-                    "example": "ehfbehf"
-                  },
-                  "price": {
-                    "type": "integer",
-                    "format": "int32",
-                    "example": 1314
-                  },
-                  "offerPrice": {
-                    "type": "integer",
-                    "format": "int32",
-                    "example": 1643
-                  },
-                  "discount": {
-                    "type": "integer",
-                    "format": "int32",
-                    "example": 40
-                  },
-                  "productName": {
-                    "type": "string",
-                    "example": "ehfbehf"
-                  },
-                  "rating": {
-                    "type": "integer",
-                    "format": "int32",
-                    "example": 90
-                  },
-                  "category": {
-                    "type": "string",
-                    "example": "jedfdf"
-                  }
-                }
-              }
-            }
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "shopName",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
           },
-          "required": false
-        },
+          {
+            "name": "price",
+            "in": "formData",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "offerPrice",
+            "in": "formData",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "discount",
+            "in": "formData",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "productName",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "rating",
+            "in": "formData",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "category",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
             "headers": {}
           }
-        },
-        "deprecated": false
+        }
       }
     }
   },

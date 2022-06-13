@@ -53,7 +53,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 const routes = require('./routes/index')
-app.use('/', routes)
+app.use('/api', routes)
 
 
 app.use('/uploads', express.static('uploads'))
