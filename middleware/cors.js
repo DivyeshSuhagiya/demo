@@ -1,4 +1,4 @@
-// const { WHITE_LIST } = require('../config/constants')
+const { WHITE_LIST } = require('../config/constant')
 
 var corsOptionsDelegate = function (req, callback) {
   var corsOptions = { origin: true, credentials: true }

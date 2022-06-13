@@ -1,0 +1,109 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "shopmart",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://node-app-demo-first.herokuapp.com",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/get": {
+      "get": {
+        "tags": [
+          "product"
+        ],
+        "summary": "get",
+        "operationId": "get",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/post": {
+      "post": {
+        "tags": [
+          "product"
+        ],
+        "summary": "post",
+        "operationId": "post",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "encoding": {},
+              "schema": {
+                "required": [
+                  "shopName",
+                  "price",
+                  "offerPrice",
+                  "discount",
+                  "productName",
+                  "rating",
+                  "category"
+                ],
+                "type": "object",
+                "properties": {
+                  "shopName": {
+                    "type": "string",
+                    "example": "ehfbehf"
+                  },
+                  "price": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 1314
+                  },
+                  "offerPrice": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 1643
+                  },
+                  "discount": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 40
+                  },
+                  "productName": {
+                    "type": "string",
+                    "example": "ehfbehf"
+                  },
+                  "rating": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 90
+                  },
+                  "category": {
+                    "type": "string",
+                    "example": "jedfdf"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "product"
+    }
+  ]
+}
