@@ -31,7 +31,7 @@
         }
       }
     },
-    "/api/product/post": {
+    "/product/post": {
       "post": {
         "summary": "post",
         "tags": [
@@ -97,6 +97,13 @@
             "in": "formData",
             "required": true,
             "type": "string",
+            "description": ""
+          },
+          {
+            "name": "productImage",
+            "in": "formData",
+            "required": true,
+            "type": "file",
             "description": ""
           }
         ],
