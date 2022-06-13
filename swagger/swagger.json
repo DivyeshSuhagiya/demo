@@ -103,7 +103,7 @@
             "name": "productImage",
             "in": "formData",
             "required": true,
-            "type": "file",
+            "type": "string",
             "description": ""
           }
         ],
