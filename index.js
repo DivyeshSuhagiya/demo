@@ -1,30 +1,3 @@
-// const express = require('express')
-// const app = express()
-// const bodyParser = require('body-parser')
-// require('dotenv').config()
-// require('./config/db')
-
-// app.use(
-//     express.json({
-//         limit: '1024mb',
-//     }),
-// )
-// app.use(bodyParser.json());
-
-// app.use(bodyParser.urlencoded({
-//     extended: true
-// }));
-
-// const routes = require('./routes/index')
-// app.use('/', routes)
-
-// app.use('/uploads', express.static('uploads'))
-
-
-// const port = process.env.PORT || 3000;
-// app.listen(port, function () {
-//     console.log(`The web server has started on port ${port}`);
-// });
 
 
 require('dotenv').config()
@@ -33,9 +6,13 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload')
-const cors = require('cors')
-const corsOptionsDelegate = require('./middleware/cors')
+// const cors = require('cors')
+// const corsOptionsDelegate = require('./middleware/cors')
 
+const cors = require('cors');
+app.use(cors({
+    origin: 'http://localhost:3000'
+}));
 
 // app.use('/uploads', express.static('uploads'))
 
