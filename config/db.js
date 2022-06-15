@@ -1,8 +1,7 @@
 'use strict'
 let mongoose = require('mongoose')
 
-// require('../models/productSchema')
-require('../models/userSchema')
+require('../models/productSchema')
 
 
 mongoose.set('debug', (collectionName, method, query, doc) => {
