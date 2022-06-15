@@ -1,7 +1,7 @@
 'use strict'
 let mongoose = require('mongoose')
 
-require('../models/productSchema')
+// require('../models/productSchema')
 require('../models/userSchema')
 
 
