@@ -8,8 +8,6 @@ const cors = require('cors')
 const corsOptionsDelegate = require('./middleware/cors')
 
 
-// app.use('/uploads', express.static('uploads'))
-
 
 app.use(fileUpload())
 app.use(
