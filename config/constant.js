@@ -1,9 +1,8 @@
 'use strict'
 
-const WHITE_LIST = ['http://localhost:3000']
+const WHITE_LIST = ['http://localhost:3000' , "https://node-app-demo-first.herokuapp.com"]
 
 module.exports = {
-  // list of domaines have access
   WHITE_LIST: WHITE_LIST,
 
   // status codes

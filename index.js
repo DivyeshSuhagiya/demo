@@ -1,24 +1,15 @@
-
-
 require('dotenv').config()
 require('./config/db')
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload')
-// const cors = require('cors')
-// const corsOptionsDelegate = require('./middleware/cors')
-
+const cors = require('cors')
+const corsOptionsDelegate = require('./middleware/cors')
 
 
 // app.use('/uploads', express.static('uploads'))
-const cors = require('cors');
-const corsOptions ={
-    origin:'http://localhost:3000', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200
-}
-app.use(cors(corsOptions));
+
 
 app.use(fileUpload())
 app.use(
@@ -27,7 +18,7 @@ app.use(
     }),
 )
 app.use(bodyParser.json());
-// app.use(cors(corsOptionsDelegate))
+app.use(cors(corsOptionsDelegate))
 app.use(bodyParser.urlencoded({
     extended: true
 }));
