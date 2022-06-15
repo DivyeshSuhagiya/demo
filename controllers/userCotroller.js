@@ -1,18 +1,23 @@
 const mongoose = require('mongoose')
 const USER = mongoose.model('users')
+const multer=require("multer")
 const {
     badRequestResponse,
     successResponse,
     notFoundResponse,
     errorResponse
   } = require('../middleware/response')
-exports.user = {
+  exports.user={
       get: async function (req, res) {
         try {
 
           let users = await USER.find({})
 
-
+          users.map((x) => {
+            if (x.image) {
+              x.image = `${getHost(req)}/uploads/${x.image}`
+            }
+          })
           return successResponse(res, {
             data: users,
           })
@@ -20,4 +25,4 @@ exports.user = {
           return errorResponse(error, req, res)
         }
       }
-}
+  }
