@@ -9,10 +9,7 @@ const fileUpload = require('express-fileupload')
 // const cors = require('cors')
 // const corsOptionsDelegate = require('./middleware/cors')
 
-const cors = require('cors');
-app.use(cors({
-    origin: 'http://localhost:3000'
-}));
+
 
 // app.use('/uploads', express.static('uploads'))
 
