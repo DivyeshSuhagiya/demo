@@ -1,6 +1,6 @@
 'use strict'
 
-const WHITE_LIST = ['http://localhost:4200']
+const WHITE_LIST = ['http://localhost:3000']
 
 module.exports = {
   // list of domaines have access
