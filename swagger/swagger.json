@@ -1,8 +1,10 @@
+
+
 {
   "swagger": "2.0",
   "info": {
     "version": "1.0",
-    "title": "Student App",
+    "title": "shopmart",
     "contact": {}
   },
   "host": "node-app-demo-first.herokuapp.com",
@@ -98,13 +100,186 @@
             "required": true,
             "type": "string",
             "description": ""
-          },
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/user/get": {
+      "get": {
+        "summary": "user get",
+        "tags": [
+          "user"
+        ],
+        "operationId": "userget",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/user/register": {
+      "post": {
+        "summary": "user register",
+        "tags": [
+          "user"
+        ],
+        "operationId": "userregister",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/user/login": {
+      "post": {
+        "summary": "user login",
+        "tags": [
+          "user"
+        ],
+        "operationId": "userlogin",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
           {
-            "name": "productImage",
-            "in": "formData",
+            "name": "Body",
+            "in": "body",
             "required": true,
-            "type": "string",
-            "description": ""
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/userloginrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/activateAccount": {
+      "post": {
+        "summary": "active user",
+        "tags": [
+          "user"
+        ],
+        "operationId": "activeuser",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/activeuserrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/": {
+      "post": {
+        "summary": "forget passowrd",
+        "tags": [
+          "user"
+        ],
+        "operationId": "forgetpassowrd",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/user/verifyOtpCode": {
+      "post": {
+        "summary": "verify otp",
+        "tags": [
+          "user"
+        ],
+        "operationId": "verifyotp",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/verifyotprequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/user/changePassword": {
+      "post": {
+        "summary": "change password",
+        "tags": [
+          "user"
+        ],
+        "operationId": "changepassword",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/changepasswordrequest"
+            }
           }
         ],
         "responses": {
@@ -116,9 +291,114 @@
       }
     }
   },
+  "definitions": {
+    "userloginrequest": {
+      "title": "userloginrequest",
+      "example": {
+        "email": "",
+        "password": ""
+      },
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email",
+        "password"
+      ]
+    },
+    "activeuserrequest": {
+      "title": "activeuserrequest",
+      "example": {
+        "email": "suhagiyadivyesh1515@gmail.com",
+        "accountActivationCode": "332895"
+      },
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "accountActivationCode": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email",
+        "accountActivationCode"
+      ]
+    },
+    "verifyotprequest": {
+      "title": "verifyotprequest",
+      "example": {
+        "email": "",
+        "otpCode": null,
+        "newPassword": "divyesh@111",
+        "confirmPassword": "divyesh@111"
+      },
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "otpCode": {
+          "type": "string"
+        },
+        "newPassword": {
+          "type": "string"
+        },
+        "confirmPassword": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email",
+        "otpCode",
+        "newPassword",
+        "confirmPassword"
+      ]
+    },
+    "changepasswordrequest": {
+      "title": "changepasswordrequest",
+      "example": {
+        "email": "suhagiyadivyesh1515@gmail.com",
+        "oldPassword": "divyesh@111",
+        "newPassword": "divyesh@new",
+        "confirmPassword": "divyesh@new"
+      },
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "oldPassword": {
+          "type": "string"
+        },
+        "newPassword": {
+          "type": "string"
+        },
+        "confirmPassword": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email",
+        "oldPassword",
+        "newPassword",
+        "confirmPassword"
+      ]
+    }
+  },
   "tags": [
     {
       "name": "product"
+    },
+    {
+      "name": "user"
     }
   ]
 }

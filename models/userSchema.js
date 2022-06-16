@@ -20,7 +20,7 @@ var UserSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
-      trim: true,
+      trim: true, 
       lowercase: true,
       match: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
     },
