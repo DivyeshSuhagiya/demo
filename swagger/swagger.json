@@ -1,5 +1,3 @@
-
-
 {
   "swagger": "2.0",
   "info": {
@@ -9,17 +7,24 @@
   },
   "host": "node-app-demo-first.herokuapp.com",
   "basePath": "/api",
-  "schemes": ["https","http"],
-  "consumes": ["application/json"],
-  "produces": ["application/json"],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "paths": {
     "/product/get": {
       "get": {
-        "summary": "get",
+        "summary": "get product",
         "tags": [
           "product"
         ],
-        "operationId": "get",
+        "operationId": "getproduct",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -35,11 +40,11 @@
     },
     "/product/post": {
       "post": {
-        "summary": "post",
+        "summary": "post product",
         "tags": [
           "product"
         ],
-        "operationId": "post",
+        "operationId": "postproduct",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -97,6 +102,99 @@
           {
             "name": "category",
             "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "productImage",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/product/delete": {
+      "delete": {
+        "summary": "delete product",
+        "tags": [
+          "product"
+        ],
+        "operationId": "deleteproduct",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/product/update": {
+      "post": {
+        "summary": "update product",
+        "tags": [
+          "product"
+        ],
+        "operationId": "updateproduct",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/updateproductrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/product/getById": {
+      "get": {
+        "summary": "getByID product",
+        "tags": [
+          "product"
+        ],
+        "operationId": "getByIDproduct",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
             "required": true,
             "type": "string",
             "description": ""
@@ -312,14 +410,73 @@
     }
   },
   "definitions": {
+    "updateproductrequest": {
+      "title": "updateproductrequest",
+      "example": {
+        "id": "62a6ae834f8eef1124e25782",
+        "shopName": "new shop",
+        "productImage": "formdata image",
+        "price": 13245,
+        "offerPrice": 15000,
+        "discount": 20,
+        "productName": "new",
+        "rating": 50,
+        "category": "shoes"
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "shopName": {
+          "type": "string"
+        },
+        "productImage": {
+          "type": "string"
+        },
+        "price": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "offerPrice": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "discount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "rating": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "category": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "shopName",
+        "productImage",
+        "price",
+        "offerPrice",
+        "discount",
+        "productName",
+        "rating",
+        "category"
+      ]
+    },
     "userregisterrequest": {
       "title": "userregisterrequest",
       "example": {
-        "userName" : "demo user",
+        "userName": "demo user",
         "email": "demo@gmail.com",
         "mobile": "5345136137",
         "password": "123456",
-        "confirmPassword" : "123456"
+        "confirmPassword": "123456"
       },
       "type": "object",
       "properties": {
