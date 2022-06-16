@@ -361,8 +361,8 @@
     "activeuserrequest": {
       "title": "activeuserrequest",
       "example": {
-        "email": "suhagiyadivyesh1515@gmail.com",
-        "accountActivationCode": "332895"
+        "email": "demo@gmail.com",
+        "accountActivationCode": "123456"
       },
       "type": "object",
       "properties": {
