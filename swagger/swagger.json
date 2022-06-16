@@ -331,8 +331,11 @@
         }
       },
       "required": [
+        "userName",
         "email",
-        "password"
+        "mobile",
+        "password",
+        "confirmPassword"
       ]
     },
     "userloginrequest": {
