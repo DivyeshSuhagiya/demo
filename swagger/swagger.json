@@ -141,7 +141,17 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/userregisterrequest"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -210,9 +220,9 @@
         }
       }
     },
-    "/": {
+    "/user/forgetpassowrd": {
       "post": {
-        "summary": "forget passowrd",
+        "summary": "forget password",
         "tags": [
           "user"
         ],
@@ -221,7 +231,17 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/forgetpasswordrequest"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -292,11 +312,34 @@
     }
   },
   "definitions": {
+    "userregisterrequest": {
+      "title": "userregisterrequest",
+      "example": {
+        "userName" : "demo user",
+        "email": "demo@gmail.com",
+        "mobile": "5345136137",
+        "password": "123456",
+        "confirmPassword" : "123456"
+      },
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email",
+        "password"
+      ]
+    },
     "userloginrequest": {
       "title": "userloginrequest",
       "example": {
-        "email": "",
-        "password": ""
+        "email": "demo@gmail.com",
+        "password": "123456"
       },
       "type": "object",
       "properties": {
@@ -332,13 +375,28 @@
         "accountActivationCode"
       ]
     },
+    "forgetpasswordrequest": {
+      "title": "forgetpasswordrequest",
+      "example": {
+        "email": "demo@gmail.com"
+      },
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email"
+      ]
+    },
     "verifyotprequest": {
       "title": "verifyotprequest",
       "example": {
-        "email": "",
-        "otpCode": null,
-        "newPassword": "divyesh@111",
-        "confirmPassword": "divyesh@111"
+        "email": "demo@gmail.com",
+        "otpCode": "123456",
+        "newPassword": "demo@123",
+        "confirmPassword": "demo@123"
       },
       "type": "object",
       "properties": {
@@ -365,10 +423,10 @@
     "changepasswordrequest": {
       "title": "changepasswordrequest",
       "example": {
-        "email": "suhagiyadivyesh1515@gmail.com",
-        "oldPassword": "divyesh@111",
-        "newPassword": "divyesh@new",
-        "confirmPassword": "divyesh@new"
+        "email": "demo@gmail.com",
+        "oldPassword": "demo@123",
+        "newPassword": "demo@new",
+        "confirmPassword": "demo@new"
       },
       "type": "object",
       "properties": {
