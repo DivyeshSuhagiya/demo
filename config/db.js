@@ -2,6 +2,7 @@
 let mongoose = require('mongoose')
 
 require('../models/productSchema')
+require('../models/demoSchema')
 
 
 mongoose.set('debug', (collectionName, method, query, doc) => {
