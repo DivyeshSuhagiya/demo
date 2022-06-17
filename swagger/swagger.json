@@ -228,6 +228,34 @@
         }
       }
     },
+    "/user/getById": {
+      "get": {
+        "summary": "getByID user",
+        "tags": [
+          "user"
+        ],
+        "operationId": "getByIDuser",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
     "/user/register": {
       "post": {
         "summary": "user register",

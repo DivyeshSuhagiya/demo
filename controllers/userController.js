@@ -21,6 +21,23 @@ exports.user = {
             })
         }
     },
+    getById: async function (req, res) {
+        try {
+          const userInfo = await USER.findOne({
+            _id: req.query.id,
+          })
+          if (!userInfo) {
+            return badRequestResponse(res, {
+              message: 'User not found',
+            })
+          }
+          return successResponse(res, {
+            data: userInfo,
+          })
+        } catch (error) {
+          return errorResponse(error, req, res)
+        }
+      },
     delete: async (req, res) => {
         try {
             const userInfo = await USER.findOne({
