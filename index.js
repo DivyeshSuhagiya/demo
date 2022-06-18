@@ -32,6 +32,14 @@ const swaggerUi = require("swagger-ui-express");
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerJson));
 
 
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Authorization, x-auth-token, content-type');
+    res.setHeader('Access-Control-Allow-Credentials', false);
+    next();
+  }); 
+
 const port = process.env.PORT || 3000;
 app.listen(port, function () {
     console.log(`The web server has started on port ${port}`);
